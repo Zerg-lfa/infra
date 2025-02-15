@@ -75,6 +75,13 @@ resource "yandex_vpc_security_group" "webserver-sg" {
 
   ingress {
     protocol       = "TCP"
+    description    = "https"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+    port           = 8080
+  }
+
+  ingress {
+    protocol       = "TCP"
     description    = "ssh"
     v4_cidr_blocks = ["0.0.0.0/0"]
     port           = 22
